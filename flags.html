@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var request = new XMLHttpRequest();
+        //2.create or open a connection
+        request.open('GET','https://restcountries.eu/rest/v2/all',true);
+        //3.send the request
+        request.send();
+        //Load the response
+        request.onload = function(){
+            var data =  JSON.parse(this.response);
+            console.log(data);
+            for(var i in data){
+                console.log(data[i].flag);
+                
+            }
+        }
+        request.onerror = function(){
+            console.log("Error");
+        }
+    </script>
+</body>
+</html>
