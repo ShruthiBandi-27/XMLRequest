@@ -10,14 +10,14 @@
     <script>
         var request = new XMLHttpRequest();
 
-        request.open('GET','https://restcountries.eu/rest/v3/all',true);
+        request.open('GET','https://restcountries.com/v3.1/all',true);
 
         request.send();
     
         request.onload = function(){
             let data = JSON.parse(this.response);
             for(let i in data){
-                console.log(`Country: ${data[i].name} Region: ${data[i].region} Subregion: ${data[i].subregion} Population: ${data[i].population}`);
+                console.log(`Country: ${data[i].name.common}\nRegion: ${data[i].region}\nSubregion: ${data[i].subregion}\nPopulation: ${data[i].population}`);
             }
         }
     </script>
